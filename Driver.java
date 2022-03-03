@@ -21,14 +21,15 @@ public class Driver {
 		/*
 		//TODO:
 		 * Start with regular hangman
-		 * prompt the user for the number of guesses
-		 * display the number of blanks to match the letters
-		 * prompt the user to input a letter and check word for letter
-		 * update the word display with the letters they have guessed
-		 * maintain and possibly display list of previously guessed letters
-		 * if all blanks have been filled - user wins
-		 * counter to keep up with incorrect guesses and if exceeds number of guesses from beginning, the player loses
-		 * loop to play again
+		 * prompt the user for the number of guesses - Daniel
+		 * display the number of blanks to match the letters - AJ
+		 * prompt the user to input a letter - Jordan Johnson
+		 * check word for letter - Phillip
+		 * update the word display with the letters they have guessed - Ross
+		 * maintain and possibly display list of previously guessed letters - Jordan Jones
+		 * if all blanks have been filled - user wins - Jack
+		 * counter to keep up with incorrect guesses and if exceeds number of guesses from beginning, the player loses - Daniel
+		 * loop to play again - Jordan Johnson
 		 * 
 		 * 
 		 * Big Task: algorithm to change word based on user guesses to include a method for creating word families
