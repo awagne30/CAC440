@@ -18,6 +18,14 @@ public class EvilHangman {
 		return true; 
 	}
 	
+	public boolean compareLetters(char guessedLetter) {
+    		for (char letter : wordToPrint) {
+      			if (guessedLetter == letter) 
+        			return true;
+		}
+        	return false; 
+    	}
+
 	public void printWord() {
 		System.out.print(wordToPrint.toString());
 	}
