@@ -4,6 +4,13 @@ import java.util.Scanner;
 
 public class Driver {
 
+	public static void printBlanks(int length){
+	String[] WordToPrint = new String[](length);
+		for (int i = 0; i < length; i++);
+			WordToPrint[i] = "_";
+		system.out.println(WordToPrint);
+	}
+
 	public static void main(String[] args) {
 		String fileName = "EvilHangman/dictionary.txt";
 
@@ -18,9 +25,10 @@ public class Driver {
 		for(String word : sample) {
 			System.out.println(word);
 		}
+		
+		printBlanks(length);
 		/*
 		//TODO:
-		 * Start with regular hangman
 		 * prompt the user for the number of guesses - Daniel
 		 * display the number of blanks to match the letters - AJ
 		 * prompt the user to input a letter - Jordan Johnson
