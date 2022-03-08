@@ -35,6 +35,27 @@ public class Driver {
 		 * 
 		 * Big Task: algorithm to change word based on user guesses to include a method for creating word families
 		*/
+	
+		public int getnumofguesses() {
+			Scanner reader = new Scanner(System.in);
+			System.out.print("Enter a number of guesses : ") ;
+			int numofguesses = reader.nextInt();
+			return numofguesses;
+		}
+
+			//counter to keep up with incorrect guesses and if exceeds number of guesses from beginning, the player loses
+		public Object incorectguesscounter(int numofguesses, object guess ) {
+			int i =0;
+			while (i < numofguesses) {
+				Object guess;
+				if ((boolean) (guess = false)) { 
+					i ++;
+				}
+			}
+			return null;
+		}
+}
+	
 	}
 
 }
