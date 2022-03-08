@@ -42,4 +42,16 @@ public class ProcessWords {
 	public ArrayList<String> getWordList(int length) {
 		return wordList.get(length);
 	}
+
+	public static displayGuessedLetters(String letter) {
+		
+		List<String> guessedLetters = new ArrayList<>(Arrays.asList(strArray));
+       
+        guessedLetters.add(letter);
+		System.out.println("Letters that have been guessed: ");
+          for(String val : guessedLetters){
+          System.out.print(val + " ");
+		}
+		//return array guessedLetters to be used by other members?
+	}
 }

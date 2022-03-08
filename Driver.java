@@ -18,6 +18,12 @@ public class Driver {
 		for(String word : sample) {
 			System.out.println(word);
 		}
+
+		public static void main(String[] args) {
+			
+
+
+
 		/*
 		//TODO:
 		 * Start with regular hangman
@@ -30,7 +36,6 @@ public class Driver {
 		 * if all blanks have been filled - user wins - Jack
 		 * counter to keep up with incorrect guesses and if exceeds number of guesses from beginning, the player loses - Daniel
 		 * loop to play again - Jordan Johnson
-		 * 
 		 * 
 		 * Big Task: algorithm to change word based on user guesses to include a method for creating word families
 		*/
