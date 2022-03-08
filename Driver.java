@@ -26,18 +26,21 @@ public class Driver {
 		EvilHangman game = new EvilHangman(length);
 		while(!game.checkWin() && incorrectGuesses < numofguesses) {
 			game.printWord();
-			//Phillip's check word
-			incorrectGuesses++;
-			
+			System.out.print("Input a character: ");  
+			// reading a character   
+			char letterGuessed = input.next().charAt(0);   
+			System.out.println("You have entered " + c);   
+			if(game.compareLetters(letterGuessed)
+				game.updateLetters(letterGuessed)	
+			else
+				incorrectGuesses++;
+			  
 		}
 		/*
 		//TODO:
-		 * Start with regular hangman
-		 * prompt the user for the number of guesses - Daniel
-		 * update the word display with the letters they have guessed
-		 * maintain and possibly display list of previously guessed letters
-		 * counter to keep up with incorrect guesses and if exceeds number of guesses from beginning, the player loses
-		 * loop to play again
+		 * update the word display with the letters they have guessed - Ross
+		 * maintain and possibly display list of previously guessed letters - Jordan Jones
+		 *  
 		 * 
 		 * 
 		 * Big Task: algorithm to change word based on user guesses to include a method for creating word families
