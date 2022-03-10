@@ -14,45 +14,40 @@ public class Driver {
 		System.out.print("Enter the word length: ");
 		int length = input.nextInt();
 		
+		System.out.print("Enter a number of guesses : ") ;
+		int numofguesses = reader.nextInt();
+		
 		ArrayList<String> sample = processor.getWordList(length);
 		for(String word : sample) {
 			System.out.println(word);
 		}
+		int incorrectGuesses = 0;
+		
+		EvilHangman game = new EvilHangman(length);
+		while(!game.checkWin() && incorrectGuesses < numofguesses) {
+			game.printWord();
+			System.out.print("Input a character: ");  
+			// reading a character   
+			char letterGuessed = input.next().charAt(0);   
+			System.out.println("You have entered " + c);   
+			if(game.compareLetters(letterGuessed)
+				game.updateLetters(letterGuessed)	
+			else
+				incorrectGuesses++;
+			  
+		}
 		/*
 		//TODO:
-		 * Start with regular hangman
-		 * prompt the user for the number of guesses - Daniel
-		 * display the number of blanks to match the letters - AJ
-		 * prompt the user to input a letter - Jordan Johnson
-		 * check word for letter - Phillip
 		 * update the word display with the letters they have guessed - Ross
 		 * maintain and possibly display list of previously guessed letters - Jordan Jones
-		 * if all blanks have been filled - user wins - Jack
-		 * counter to keep up with incorrect guesses and if exceeds number of guesses from beginning, the player loses - Daniel
-		 * loop to play again - Jordan Johnson
-		 * 
-		 * 
-		 * Big Task: algorithm to change word based on user guesses to include a method for creating word families
+		 *  
+		 * word families
+		 * choose subset with largest number of words
+		 * place letter if applicable
+		 * check win status
 		*/
-	
-		public int getnumofguesses() {
-			Scanner reader = new Scanner(System.in);
-			System.out.print("Enter a number of guesses : ") ;
-			int numofguesses = reader.nextInt();
-			return numofguesses;
-		}
 
-			//counter to keep up with incorrect guesses and if exceeds number of guesses from beginning, the player loses
-		public Object incorectguesscounter(int numofguesses, object guess ) {
-			int i =0;
-			while (i < numofguesses) {
-				Object guess;
-				if ((boolean) (guess = false)) { 
-					i ++;
-				}
-			}
-			return null;
-		}
+
 }
 	
 	}
