@@ -41,9 +41,10 @@ public class Driver {
 		 * update the word display with the letters they have guessed - Ross
 		 * maintain and possibly display list of previously guessed letters - Jordan Jones
 		 *  
-		 * 
-		 * 
-		 * Big Task: algorithm to change word based on user guesses to include a method for creating word families
+		 * word families
+		 * choose subset with largest number of words
+		 * place letter if applicable
+		 * check win status
 		*/
 
 

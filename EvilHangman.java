@@ -29,4 +29,15 @@ public class EvilHangman {
 	public void printWord() {
 		System.out.print(wordToPrint.toString());
 	}
+	public void findlongest(String[] familyList) {
+		for( int i=0; i<= familyList.length; i++) {
+			
+			String longest = familyList[i];
+			
+			if (familyList[i+1].length() > longest.length()) {
+				longest = familyList[i+1];
+			}
+		}
+		
+	}
 }
