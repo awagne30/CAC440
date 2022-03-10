@@ -29,7 +29,7 @@ public class EvilHangman {
 	public void printWord() {
 		System.out.print(wordToPrint.toString());
 	}
-	public void findlongest(String[] familyList) {
+	public String[] findlongest(String[] familyList) {
 		for( int i=0; i<= familyList.length; i++) {
 			
 			String longest = familyList[i];
@@ -38,6 +38,7 @@ public class EvilHangman {
 				longest = familyList[i+1];
 			}
 		}
+		return longest;
 		
 	}
 }
