@@ -42,15 +42,12 @@ public class Driver {
 		}
 		/*
 		//TODO:
-		 * update the word display with the letters they have guessed - Ross
-		 *  
 		 * word families
 		 * choose subset with largest number of words
-		 * place letter if applicable
 		*/
 
 
-}
+		}
 	
 	}
 
