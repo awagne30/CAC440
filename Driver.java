@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.SortedSet;
 
 public class Driver {
 
@@ -15,40 +16,44 @@ public class Driver {
 		int length = input.nextInt();
 		
 		System.out.print("Enter a number of guesses : ") ;
-		int numofguesses = reader.nextInt();
+		int numofguesses = input.nextInt();
 		
 		ArrayList<String> sample = processor.getWordList(length);
+		/*
 		for(String word : sample) {
 			System.out.println(word);
-		}
+		}*/
 		int incorrectGuesses = 0;
-		SortedSet<Character> guesses = new SortedSet<Character>();
+		ArrayList<Character> guesses = new ArrayList<Character>();
 		EvilHangman game = new EvilHangman(length);
+		ArrayList<String> words = sample;
 		while(!game.checkWin() && incorrectGuesses < numofguesses) {
-			game.printWord();
+			//game.printWord();
 			System.out.print("Input a character: ");  
 			// reading a character   
 			char letterGuessed = input.next().charAt(0);   
-			System.out.println("You have entered " + c);  
+			System.out.println("You have entered " + letterGuessed);  
 			
-			System.out.println("guessed : " + hangman.guesses())
-			if (hangman.guesses().contains(c)) 
-				System.out.println("You already guessed that")
-			if(game.compareLetters(letterGuessed)
-				game.updateLetters(letterGuessed)	
+			System.out.println("guessed : " + guesses.toString());
+			guesses.add(letterGuessed);
+			if (guesses.contains(letterGuessed)) 
+				System.out.println("You already guessed that");
+			//Find word families
+			//Find the largest list
+			words = game.findlongest(game.sortWords(letterGuessed, words));
+			//Display the new word
+			System.out.println("Pattern" + game.getPattern());
+			System.out.println(words.toString());
+			/*
+			if(game.compareLetters(letterGuessed))
+				game.placeLetter(letterGuessed);	
 			else
 				incorrectGuesses++;
-			  
+				*/
+			  incorrectGuesses++;
 		}
-		/*
-		//TODO:
-		 * word families
-		 * choose subset with largest number of words
-		*/
-
 
 		}
 	
 	}
 
-}
