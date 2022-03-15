@@ -13,12 +13,13 @@ public class EvilHangman {
 		
 		for(int i = 0; i < length; i++)
 			wordToPrint[i] = '_';
-		currentPattern = wordToPrint.toString();
+		currentPattern = String.copyValueOf(wordToPrint);
+		
 	}
 	
 	public boolean checkWin(){
-		for(int i = 0; i < wordToPrint.length; i++) { 
-			if(wordToPrint[i] == '_') 
+		for(int i = 0; i < currentPattern.length(); i++) { 
+			if(currentPattern.charAt(i) == '_') 
 				return false; 
 		}
 		return true; 
@@ -71,24 +72,28 @@ public class EvilHangman {
 	    HashMap<String,ArrayList<String>> wordFamilies = new HashMap<String,ArrayList<String>>();
 	    for(String word : wordList) {
 	    	char[] letters = word.toCharArray();
+	    	String pattern = "";
 	    	for(int i = 0; i < word.length(); i++) {
 	    	  //find patterns
-	    	  if(word.charAt(i) == guessedLetter && currentPattern.charAt(i) == '_')
-	    		letters[i] = guessedLetter;
+	    	  if(word.charAt(i) != guessedLetter)
+	    		pattern += currentPattern.charAt(i);
+	    	  else
+	    		  pattern += guessedLetter;
 	    	}
-	    	currentPattern = letters.toString();
+	    	
 	      //does pattern exist in arraylist
-	      ArrayList<String> wordFamily = wordFamilies.get(currentPattern);
+	      ArrayList<String> wordFamily = wordFamilies.get(pattern);
 	      if(wordFamily == null){
 	        wordFamily = new ArrayList<String>();
 	        wordFamily.add(word);
-	        wordFamilies.put(currentPattern, wordFamily);
+	        wordFamilies.put(pattern, wordFamily);
 	      }
 	      else {
 	        wordFamily.add(word);
-	      wordFamilies.put(currentPattern,wordFamily);
+	      wordFamilies.put(pattern,wordFamily);
 	      }
 	    }
+    	System.out.println("Patterns:" + wordFamilies.keySet().toString());
 	    return wordFamilies;
 	  }
 	
@@ -96,4 +101,5 @@ public class EvilHangman {
 		return currentPattern;
 	}
 }
+
 
