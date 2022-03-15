@@ -22,14 +22,18 @@ public class Driver {
 			System.out.println(word);
 		}
 		int incorrectGuesses = 0;
-		
+		SortedSet<Character> guesses = new SortedSet<Character>();
 		EvilHangman game = new EvilHangman(length);
 		while(!game.checkWin() && incorrectGuesses < numofguesses) {
 			game.printWord();
 			System.out.print("Input a character: ");  
 			// reading a character   
 			char letterGuessed = input.next().charAt(0);   
-			System.out.println("You have entered " + c);   
+			System.out.println("You have entered " + c);  
+			
+			System.out.println("guessed : " + hangman.guesses())
+			if (hangman.guesses().contains(c)) 
+				System.out.println("You already guessed that")
 			if(game.compareLetters(letterGuessed)
 				game.updateLetters(letterGuessed)	
 			else
@@ -39,12 +43,10 @@ public class Driver {
 		/*
 		//TODO:
 		 * update the word display with the letters they have guessed - Ross
-		 * maintain and possibly display list of previously guessed letters - Jordan Jones
 		 *  
 		 * word families
 		 * choose subset with largest number of words
 		 * place letter if applicable
-		 * check win status
 		*/
 
 
