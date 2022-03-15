@@ -1,13 +1,19 @@
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 public class EvilHangman {
 
 	private char[] wordToPrint;
+	private String currentPattern;
 	
 	public EvilHangman(int length) {
 		wordToPrint = new char[length];
 		
 		for(int i = 0; i < length; i++)
 			wordToPrint[i] = '_';
+		currentPattern = wordToPrint.toString();
 	}
 	
 	public boolean checkWin(){
@@ -25,58 +31,69 @@ public class EvilHangman {
 		}
         	return false; 
     	}
-
+/*
 	public void printWord() {
 		System.out.print(wordToPrint.toString());
 	}
-	public String[] findlongest(String[] familyList) {
-		for( int i=0; i<= familyList.length; i++) {
+	*/
+	public ArrayList<String> findlongest(HashMap<String,ArrayList<String>> familyList) {
+		ArrayList<String> longest = null;
+		int count = 0;
+		for(String key : familyList.keySet()) {
 			
-			String longest = familyList[i];
-			
-			if (familyList[i+1].length() > longest.length()) {
-				longest = familyList[i+1];
+			if(familyList.get(key).size() > count) {
+				longest = familyList.get(key);
+				count = longest.size();
+				currentPattern = key;
 			}
 		}
 		return longest;
-		
 	}
-	public static placeLetter(String[] largestGroup, String guessedLetter) {
+	/*
+	public void placeLetter(String guessedLetter) {
         	List<String> placeLetterList = new ArrayList<String>();
-        	for(String word : largestgroup){
-		    if(word.contains(guessedLetter)) {
-			for(String letter : word){
-			    String onlyGuessedLetters = "";
-			    if(letter.equals(guessedLetter)){
-				onlyGuessedLetters = letter;
-			    }
-			    onlyGuessedLetters = "_";  
-			}
-			placeLetterList.add(onlyGuessedLetters)
-		    }
-		return placeLetterList
+        	for(String word : largestGroup){
+        		if(word.contains(guessedLetter)) {
+        			for(char letter : word.){
+        				String onlyGuessedLetters = "";
+        				if(letter.equals(guessedLetter)){
+        					onlyGuessedLetters = letter;
+        				}
+        				onlyGuessedLetters = "_";  
+        			}
+        			placeLetterList.add(onlyGuessedLetters)
+        		}
+        		return placeLetterList;
         	}
- 	}
-public ArrayList<String> sortWords(int wordLength, char guessedLetter, ArrayList<String> wordList) {
-    HashMap<String,ArrayList<String>> wordFamilies = new HashMap<String,ArrayList<String>>();
-    for(String word : wordList) {
-     
-      for(int i = 0; i < wordLength; i++) {
-        //find patterns
-       
-        //replace wrong letters with -
-       
-      }
-      //does pattern exist in arraylist
-      ArrayList<String> wordFamily = wordFamilies.get(pattern);
-      if(wordFamlily == null){
-        wordFamily = new ArrayList<String>();
-        wordFamily.add(word);
-      }
-      else
-        wordFamily.add(word);
-      wordFamilies.put(pattern,wordFamily);
-    }
-    return wordFamilies;
-  }
+ 		}
+	*/
+	public HashMap<String,ArrayList<String>> sortWords(char guessedLetter, ArrayList<String> wordList) {
+	    HashMap<String,ArrayList<String>> wordFamilies = new HashMap<String,ArrayList<String>>();
+	    for(String word : wordList) {
+	    	char[] letters = word.toCharArray();
+	    	for(int i = 0; i < word.length(); i++) {
+	    	  //find patterns
+	    	  if(word.charAt(i) == guessedLetter && currentPattern.charAt(i) == '_')
+	    		letters[i] = guessedLetter;
+	    	}
+	    	currentPattern = letters.toString();
+	      //does pattern exist in arraylist
+	      ArrayList<String> wordFamily = wordFamilies.get(currentPattern);
+	      if(wordFamily == null){
+	        wordFamily = new ArrayList<String>();
+	        wordFamily.add(word);
+	        wordFamilies.put(currentPattern, wordFamily);
+	      }
+	      else {
+	        wordFamily.add(word);
+	      wordFamilies.put(currentPattern,wordFamily);
+	      }
+	    }
+	    return wordFamilies;
+	  }
+	
+	public String getPattern() {
+		return currentPattern;
+	}
 }
+
