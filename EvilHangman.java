@@ -57,4 +57,26 @@ public class EvilHangman {
 		return placeLetterList
         	}
  	}
+public ArrayList<String> sortWords(int wordLength, char guessedLetter, ArrayList<String> wordList) {
+    HashMap<String,ArrayList<String>> wordFamilies = new HashMap<String,ArrayList<String>>();
+    for(String word : wordList) {
+     
+      for(int i = 0; i < wordLength; i++) {
+        //find patterns
+       
+        //replace wrong letters with -
+       
+      }
+      //does pattern exist in arraylist
+      ArrayList<String> wordFamily = wordFamilies.get(pattern);
+      if(wordFamlily == null){
+        wordFamily = new ArrayList<String>();
+        wordFamily.add(word);
+      }
+      else
+        wordFamily.add(word);
+      wordFamilies.put(pattern,wordFamily);
+    }
+    return wordFamilies;
+  }
 }
