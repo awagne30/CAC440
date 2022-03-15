@@ -42,7 +42,7 @@ public class Driver {
 			//Find the largest list
 			words = game.findlongest(game.sortWords(letterGuessed, words));
 			//Display the new word
-			System.out.println("Pattern" + game.getPattern());
+			System.out.println("Pattern: " + game.getPattern());
 			System.out.println(words.toString());
 			/*
 			if(game.compareLetters(letterGuessed))
@@ -53,7 +53,7 @@ public class Driver {
 			  incorrectGuesses++;
 		}
 
+
 		}
 	
 	}
-
