@@ -41,4 +41,20 @@ public class EvilHangman {
 		return longest;
 		
 	}
+	public static placeLetter(String[] largestGroup, String guessedLetter) {
+        	List<String> placeLetterList = new ArrayList<String>();
+        	for(String word : largestgroup){
+		    if(word.contains(guessedLetter)) {
+			for(String letter : word){
+			    String onlyGuessedLetters = "";
+			    if(letter.equals(guessedLetter)){
+				onlyGuessedLetters = letter;
+			    }
+			    onlyGuessedLetters = "_";  
+			}
+			placeLetterList.add(onlyGuessedLetters)
+		    }
+		return placeLetterList
+        	}
+ 	}
 }
